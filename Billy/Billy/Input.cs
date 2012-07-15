@@ -17,4 +17,9 @@ namespace Billy
         public void Update(GameTime gt) { }
 
     }
+
+    class InputEvent : Event
+    {
+        public Input input;
+    }
 }

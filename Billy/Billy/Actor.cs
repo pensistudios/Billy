@@ -54,7 +54,7 @@ namespace Billy
 
         public void addComponent(Component c)
         {
-            components.Add(c);
+            //components.Add(c);
         }
 
 

@@ -21,6 +21,7 @@ namespace Billy
     {
         int id;
         public string type;
+        public List<string> listeners; 
 
         public Component()
         {

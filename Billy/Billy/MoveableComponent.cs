@@ -5,16 +5,26 @@ using System.Text;
 
 namespace Billy
 {
-    class PlayerInputComponent : Component
+    class MoveableComponent : Component
     {
         public int moveSpeed = 25;
-        PlayerInput copy;
+        Input copy;
+
+        public MoveableComponent()
+            : base()
+        {
+            listeners.Add("InputEvent");
+        }
+        
 
         public void Update(PlayerInput input)
         {
-            copy = input;
         }
-   
+        
+        public void on(InputEvent e)
+        {
+            copy = e.input; 
+        }
 
         public void Apply(Actor a)
         {

@@ -19,16 +19,18 @@ namespace Billy
         SpriteBatch spriteBatch;
         GraphicsDevice gd;
 
-        void main() {
+        public StaticComponent() 
+        {
             spriteBatch = new SpriteBatch(gd);
 
-            stream = new System.IO.FileStream(@"C:\Programming\Billy\Billy\BillyContent\test.png", System.IO.FileMode.Open);
+            stream = new System.IO.FileStream("C:\\Programming\\Billy\\Billy\\BillyContent\\test.png", System.IO.FileMode.Open);
             texture = Texture2D.FromStream(gd, stream);
         }
+        
 
         void Apply(Actor a)
         {
-            //myPos = a.pos;
+            myPos = a.pos;
         }
 
         public void Draw(GameTime gt) 

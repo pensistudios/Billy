@@ -19,9 +19,12 @@ namespace Billy
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        PlayerInput testInput;
+        PlayerInput keyboard;
         StaticComponent statictestComp;
+
         
+
+        List<Actor> actors;
 
         public Billy()
         {
@@ -41,17 +44,16 @@ namespace Billy
             // TODO: Add your initialization logic here
             
             base.Initialize();
-<<<<<<< HEAD
-            keyboard = new PlayerInput();
+
+            //keyboard = new PlayerInput();
 
             //Init player
             Actor player = new Actor();
-            PlayerInputComponent pic = new PlayerInputComponent();
+            MoveableComponent pic = new MoveableComponent();
             player.addComponent(pic);
-=======
-            testInput = new PlayerInput();
             statictestComp = new StaticComponent();
->>>>>>> 9e250e4bf89b5260edf5d94e5cf6a9c7d9bbc600
+            //player.addComponent(statictestComp);
+                
         }
 
         /// <summary>
@@ -94,7 +96,7 @@ namespace Billy
             {
                 if (a.hasComponent("PlayerInputComponent"))
                 {
-                    PlayerInputComponent c = (PlayerInputComponent)a.getComponent("PlayerInputComponent");
+                    MoveableComponent c = (MoveableComponent)a.getComponent("PlayerInputComponent");
                     c.Update(keyboard);
                     c.Apply(a);
                 }
@@ -114,22 +116,20 @@ namespace Billy
 
             // TODO: Add your drawing code here
 
-<<<<<<< HEAD
+
             foreach (Actor a in actors)
             {
                 if (a.hasComponent("DrawableComponent"))
                 {
-                    DrawableComponent c = (DrawableComponent)a.getComponent("DrawableComponent");
+                    //DrawableComponent c = (DrawableComponent)a.getComponent("DrawableComponent");
                     
-                    c.Apply(a);
-                    c.Draw(gameTime); 
+                    //c.Apply(a);
+                    //c.Draw(gameTime); 
                 }
 
             }
-
-=======
             statictestComp.Draw(gameTime);
->>>>>>> 9e250e4bf89b5260edf5d94e5cf6a9c7d9bbc600
+
             base.Draw(gameTime);
         }
     }
