@@ -6,11 +6,11 @@ using Microsoft.Xna.Framework;
 
 namespace Billy
 {
-    class DrawableComponent
+    class DrawableComponent : Component
     {
 
-        void Apply(Actor a) { }
-        void Draw(GameTime gt) { }
+        public void Apply(Actor a) { }
+        public void Draw(GameTime gt) { }
 
 
     }

@@ -17,13 +17,14 @@ namespace Billy
         System.IO.FileStream stream;
         //Potential problem with GraphicsDevice initializing null for some reason
         SpriteBatch spriteBatch;
-        GraphicsDevice gd;
+        //GraphicsDevice gd;
 
-        public StaticComponent() 
+        public StaticComponent(GraphicsDevice gd) 
         {
             spriteBatch = new SpriteBatch(gd);
 
-            stream = new System.IO.FileStream("C:\\Programming\\Billy\\Billy\\BillyContent\\test.png", System.IO.FileMode.Open);
+            stream = new System.IO.FileStream("C:\\Users\\patrick\\Documents\\Visual Studio 2010\\Projects\\Billy\\Billy\\BillyContent\\test.png", System.IO.FileMode.Open);
+            //stream = new System.IO.FileStream("C:\\Programming\\Billy\\Billy\\BillyContent\\test.png", System.IO.FileMode.Open);
             texture = Texture2D.FromStream(gd, stream);
         }
         

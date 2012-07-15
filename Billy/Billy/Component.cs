@@ -27,6 +27,7 @@ namespace Billy
         {
             id = ComponentID.getNewID();
             type = this.GetType().ToString();
+            listeners = new List<string>();
         }
 
         // Only to be called by some sort of actor manager

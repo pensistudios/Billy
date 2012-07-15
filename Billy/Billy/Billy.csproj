@@ -110,8 +110,9 @@
     <Compile Include="Actor.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="DrawableComponent.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="PlayerInputComponent.cs" />
+    <Compile Include="MoveableComponent.cs" />
     <Compile Include="PlayerInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

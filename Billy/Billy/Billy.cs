@@ -28,6 +28,7 @@ namespace Billy
 
         public Billy()
         {
+            actors = new List<Actor>();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -45,13 +46,14 @@ namespace Billy
             
             base.Initialize();
 
-            //keyboard = new PlayerInput();
+            keyboard = new PlayerInput();
 
             //Init player
             Actor player = new Actor();
             MoveableComponent pic = new MoveableComponent();
             player.addComponent(pic);
-            statictestComp = new StaticComponent();
+            statictestComp = new StaticComponent(GraphicsDevice);
+            player.addComponent(statictestComp);
             //player.addComponent(statictestComp);
                 
         }
@@ -94,11 +96,14 @@ namespace Billy
 
             foreach (Actor a in actors)
             {
-                if (a.hasComponent("PlayerInputComponent"))
+                if (a.hasComponent("MoveableComponent"))
                 {
-                    MoveableComponent c = (MoveableComponent)a.getComponent("PlayerInputComponent");
+                    MoveableComponent c = (MoveableComponent)a.getComponent("MoveableComponent");
                     c.Update(keyboard);
                     c.Apply(a);
+
+                    StaticComponent dc = (StaticComponent)a.getComponent("StaticComponent");
+                    dc.Apply(a);
                 }
             }
 
@@ -121,7 +126,8 @@ namespace Billy
             {
                 if (a.hasComponent("DrawableComponent"))
                 {
-                    //DrawableComponent c = (DrawableComponent)a.getComponent("DrawableComponent");
+                    StaticComponent c = (StaticComponent)a.getComponent("StaticComponent");
+                    c.Draw(gameTime);
                     
                     //c.Apply(a);
                     //c.Draw(gameTime); 
