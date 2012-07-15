@@ -18,14 +18,15 @@ namespace Billy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
         PlayerInput testInput;
+        StaticComponent statictestComp;
+        
 
         public Billy()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            
 
         }
 
@@ -38,9 +39,10 @@ namespace Billy
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            
             base.Initialize();
             testInput = new PlayerInput();
+            statictestComp = new StaticComponent();
         }
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace Billy
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+   
             // TODO: use this.Content to load your game content here
         }
 
@@ -90,6 +92,7 @@ namespace Billy
 
             // TODO: Add your drawing code here
 
+            statictestComp.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

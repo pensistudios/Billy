@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Billy
 {
-    class InputComponent : Component
+    class InputComponent 
     {
 
     }
