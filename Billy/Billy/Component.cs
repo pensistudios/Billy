@@ -15,5 +15,10 @@ namespace Billy
             id = iId;
             type = this.GetType().ToString();
         }
+
+        // Only to be called by some sort of actor manager
+        public void Apply(Actor actor)
+        {
+        }
     }
 }
