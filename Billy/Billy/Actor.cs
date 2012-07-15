@@ -7,15 +7,29 @@ using Microsoft.Xna.Framework;
 
 namespace Billy
 {
+    class ActorID
+    {
+        static int nextID = 0;
+
+        public static int getNewID()
+        {
+            int temp = nextID;
+            nextID++;
+            return temp;
+        }
+    }
+
+
     class Actor
     {
         // private Input
         int id;
         string type;
+        public Microsoft.Xna.Framework.Vector2 pos;
 
-        public Actor(int iId) 
+        public Actor() 
         {
-            id = iId;
+            id = ActorID.getNewID();
             type = this.GetType().ToString();
         }
 
@@ -37,6 +51,12 @@ namespace Billy
             }
             return false;
         }
+
+        public void addComponent(Component c)
+        {
+            components.Add(c);
+        }
+
 
         public Component getComponent(String type)
         {

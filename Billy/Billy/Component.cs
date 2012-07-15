@@ -5,14 +5,26 @@ using System.Text;
 
 namespace Billy
 {
+    class ComponentID
+    {
+        static int nextID = 0;
+
+        public static int getNewID()
+        {
+            int temp = nextID;
+            nextID++;
+            return temp;
+        }
+    }
+
     class Component
     {
         int id;
         public string type;
 
-        public Component(int iId)
+        public Component()
         {
-            id = iId;
+            id = ComponentID.getNewID();
             type = this.GetType().ToString();
         }
 

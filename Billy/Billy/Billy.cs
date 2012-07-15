@@ -18,7 +18,8 @@ namespace Billy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        PlayerInput testInput;
+        PlayerInput keyboard;
+        List<Actor> actors;
 
         public Billy()
         {
@@ -40,7 +41,12 @@ namespace Billy
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            testInput = new PlayerInput();
+            keyboard = new PlayerInput();
+
+            //Init player
+            Actor player = new Actor();
+            PlayerInputComponent pic = new PlayerInputComponent();
+            player.addComponent(pic);
         }
 
         /// <summary>
@@ -71,12 +77,25 @@ namespace Billy
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            keyboard.Update(gameTime);
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             // TODO: Add your update logic here
-            testInput.Update(gameTime);
+
+            foreach (Actor a in actors)
+            {
+                if (a.hasComponent("PlayerInputComponent"))
+                {
+                    PlayerInputComponent c = (PlayerInputComponent)a.getComponent("PlayerInputComponent");
+                    c.Update(keyboard);
+                    c.Apply(a);
+                }
+            }
+
+
             base.Update(gameTime);
         }
 
@@ -89,6 +108,18 @@ namespace Billy
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            foreach (Actor a in actors)
+            {
+                if (a.hasComponent("DrawableComponent"))
+                {
+                    DrawableComponent c = (DrawableComponent)a.getComponent("DrawableComponent");
+                    
+                    c.Apply(a);
+                    c.Draw(gameTime); 
+                }
+
+            }
 
             base.Draw(gameTime);
         }

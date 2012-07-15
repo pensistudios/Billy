@@ -12,7 +12,7 @@ namespace Billy
 {
     class Input 
     {
-        protected Boolean goLeft, goRight, jump, drop;
+        public Boolean goLeft, goRight, jump, drop;
 
         public void Update(GameTime gt) { }
 
