@@ -18,7 +18,7 @@ namespace Billy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Input testInput;
+        PlayerInput testInput;
 
         public Billy()
         {
@@ -40,7 +40,7 @@ namespace Billy
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            testInput = new Input();
+            testInput = new PlayerInput();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Billy
                 this.Exit();
 
             // TODO: Add your update logic here
-            testInput.Update();
+            testInput.Update(gameTime);
             base.Update(gameTime);
         }
 
